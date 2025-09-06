@@ -100,7 +100,7 @@ export default function Projects() {
     const description = draft.description.trim();
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:3000/projects", {
+      const res = await fetch(`${API_BASE_URL}/projects`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -148,7 +148,7 @@ export default function Projects() {
   const deleteProject = async (id: string) => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:3000/projects/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/projects/${id}`, {
         method: "DELETE",
         headers: {
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
