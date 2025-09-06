@@ -114,7 +114,7 @@ export default function TasksBoard() {
     );
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:3000/tasks/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/tasks/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -196,7 +196,7 @@ export default function TasksBoard() {
       const token = localStorage.getItem("token");
       if (mode === "create") {
         console.log("[TasksBoard] Creating task", { name });
-        const res = await fetch("http://localhost:3000/tasks", {
+        const res = await fetch(`${API_BASE_URL}/tasks`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -227,7 +227,7 @@ export default function TasksBoard() {
         toast.success("Task created");
       } else if (mode === "edit" && draft.id) {
         console.log("[TasksBoard] Updating task", { id: draft.id });
-        const res = await fetch(`http://localhost:3000/tasks/${draft.id}`, {
+        const res = await fetch(`${API_BASE_URL}/tasks/${draft.id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -275,7 +275,7 @@ export default function TasksBoard() {
     try {
       const token = localStorage.getItem("token");
       console.log("[TasksBoard] Deleting task", { id: draft.id });
-      const res = await fetch(`http://localhost:3000/tasks/${draft.id}`, {
+      const res = await fetch(`${API_BASE_URL}/tasks/${draft.id}`, {
         method: "DELETE",
         headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) },
       });
