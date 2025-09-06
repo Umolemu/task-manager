@@ -1,28 +1,26 @@
-import './App.css'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Projects from './pages/Projects'
-import Header from './components/Header'
-import TasksBoard from './pages/TasksBoard'
+import "./App.css";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Projects from "./pages/Projects";
+import Header from "./components/Header";
+import TasksBoard from "./pages/TasksBoard";
 
 function App() {
-
-
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Navigate to="/projects" replace />} />
           <Route path="/projects" element={<Projects />} />
-  <Route path="/project" element={<TasksBoard />} />
+          <Route path="/project" element={<TasksBoard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

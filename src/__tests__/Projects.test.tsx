@@ -1,21 +1,23 @@
-import { render, screen } from '@testing-library/react'
-import { describe, it, expect } from 'vitest'
-import '@testing-library/jest-dom'
-import { BrowserRouter } from 'react-router-dom'
-import Projects from '../pages/Projects'
-import { ToastProvider } from '../components/ToastProvider'
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import "@testing-library/jest-dom";
+import { HashRouter } from "react-router-dom";
+import Projects from "../pages/Projects";
+import { ToastProvider } from "../components/ToastProvider";
 
-describe('Projects page', () => {
-  it('renders title and controls', () => {
+describe("Projects page", () => {
+  it("renders title and controls", () => {
     render(
-      <BrowserRouter>
+      <HashRouter>
         <ToastProvider>
           <Projects />
         </ToastProvider>
-      </BrowserRouter>
-    )
-    expect(screen.getByText('Projects')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /new project/i })).toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/search projects/i)).toBeInTheDocument()
-  })
-})
+      </HashRouter>
+    );
+    expect(screen.getByText("Projects")).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /new project/i })
+    ).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/search projects/i)).toBeInTheDocument();
+  });
+});
